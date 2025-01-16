@@ -11,7 +11,7 @@ body {
 p{
   margin-top:4rem;
   color:#f72585;
-  font-size:4vw;
+  font-size:3vw;
   font-family: "Dancing Script", serif;
   font-weight:bold;
 
@@ -39,7 +39,9 @@ main{
 }
 
 @media screen and (max-width: 768px) {
-
+p{
+  font-size:2rem;
+}
 }
 .main-content{
   /* background-color:red; */

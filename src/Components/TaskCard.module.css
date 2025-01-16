@@ -13,7 +13,7 @@ margin-top:0rem;
 }
 .card {
     background-color: #f8edeb;
-    width: 85%;
+    width: 90%;
     height:3rem;
     margin-bottom: 1rem;
     border-radius: 2rem;
@@ -34,6 +34,11 @@ margin-top:0rem;
     font-size: 1.5rem;
     font-weight: bold;
     color: #333;
+}
+@media screen and (max-width: 700px) {
+.title{
+    font-size:1rem;
+}
 }
 
 .icon {
@@ -83,5 +88,5 @@ margin-top:0rem;
     left: 50%;
     transform: translate(-50%, -50%);
     color: #fff;
-    font-size: 2rem;
+    font-size: 1.5rem;
 }
