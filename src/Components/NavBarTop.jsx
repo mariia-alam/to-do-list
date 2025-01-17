@@ -35,13 +35,13 @@ export default function NavBarTop() {
                     (<div className={styles.openList}>
                         <ul>
                             <Link to="/" className={styles.link} onClick={() => setIsListVisible(false)}>
-                                All tasks
+                                All todos
                             </Link>
                             <Link to="/completedtasks" className={styles.link} onClick={() => setIsListVisible(false)}>
-                                Completed tasks
+                                Completed todos
                             </Link>
                             <Link to="/incompletetasks" className={styles.link} onClick={() => setIsListVisible(false)}>
-                                Incomplete tasks
+                                Incomplete todos
                             </Link>
                         </ul>
                     </div>)
@@ -55,7 +55,7 @@ export default function NavBarTop() {
                 isActive ? `${styles.navLink} ${styles.active}` : styles.navLink
                 }
             >
-                All Tasks
+                All todos
             </NavLink>
             <NavLink
                 to="/incompletetasks"
@@ -63,7 +63,7 @@ export default function NavBarTop() {
                 isActive ? `${styles.navLink} ${styles.active}` : styles.navLink
                 }
             >
-                Incomplete Tasks
+                Incomplete todos
             </NavLink>
             <NavLink
                 to="/completedtasks"
@@ -71,12 +71,12 @@ export default function NavBarTop() {
                 isActive ? `${styles.navLink} ${styles.active}` : styles.navLink
                 }
             >
-                Completed Tasks
+                Completed todos
             </NavLink>
             </ul>
         </nav>
         <form action="" onSubmit={handleSubmit} className={styles.newTask}>
-                <button type="submit" className={styles.label}>New Task </button>
+                <button type="submit" className={styles.label}>Add todo </button>
                 <input name="tasktitle" type="text" className={styles.input} />
                 {/* <FontAwesomeIcon icon={faCirclePlus} className={styles.icon} /> */}
         </form>

@@ -13,16 +13,23 @@ margin-top:0rem;
 }
 .card {
     background-color: #f8edeb;
-    width: 90%;
-    height:3rem;
+    min-width: 90%;
+    max-width: 100%;
+    /* width:auto; */
+    /* height:3rem; */
+    height:auto;
     margin-bottom: 1rem;
     border-radius: 2rem;
     padding: 0.3rem;
     border: 0.2rem dotted #ff006e;
     display: grid;
     gap: 1rem;
-    grid-template-columns: 2fr 0.1fr 0.2fr;
+    /* grid-template-columns: 2fr 0.1fr 0.2fr; */
+    grid-template-columns: 1fr auto auto;
     transition: transform 0.5s ease;
+    word-wrap: break-word !important;
+
+
 
 }
 
@@ -34,6 +41,11 @@ margin-top:0rem;
     font-size: 1.5rem;
     font-weight: bold;
     color: #333;
+    white-space: normal;
+    word-break: break-word;
+    overflow-wrap: anywhere;
+    letter-spacing: 0.1rem;
+
 }
 @media screen and (max-width: 700px) {
 .title{

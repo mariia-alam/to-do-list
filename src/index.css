@@ -55,3 +55,13 @@ p{
   gap:1.5rem;
   margin-bottom:4rem;
 }
+.error{
+  padding-top:5rem;
+  padding-bottom:2rem;
+  text-align:center;
+  color:#f72585;
+  font-size:3rem;;
+  font-family: "Dancing Script", serif;
+  font-weight:bold;
+
+}
