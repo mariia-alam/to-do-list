@@ -11,7 +11,9 @@ export default function TaskCard({title , id , completed}) {
 
 
     function handleDelete(){
+
         dispatch(taskActions.deleteTask(id));
+
     }
     function handleComplete(){
         dispatch(taskActions.toggleTask(id));

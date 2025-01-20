@@ -24,6 +24,7 @@ p{
 }
 
 main{
+  /* top:5rem; */
   position:relative;
   background-color:#FFC6FF;
   display:flex;

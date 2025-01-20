@@ -4,35 +4,33 @@ const taskSlice = createSlice({
     name: 'todos',
     initialState:{
         todos:[],
-        counter: 1, // العداد يبدأ من 1
+        changed:false,
+
     },
     reducers:{
+        replaceCart(state, action) {
+        state.todos = action.payload.todos;
+        },
         addTask(state, action){
-            if (!state.todos) state.todos = []; // التأكد من وجود المصفوفة
+            if (!state.todos) state.todos = [];
+            state.changed=true;
             state.todos.push({
-                id:state.counter, 
-                title: action.payload,
+                id:action.payload.id,
+                title: action.payload.title,
                 completed:false,
             });
-            state.counter++;
         },
         deleteTask(state, action){
+            state.changed=true;
             const deletedTaskId = action.payload;
             state.todos = state.todos.filter(task => task.id !== deletedTaskId);
-            state.todos.forEach((task, index) => {
-                task.id = index + 1;
-            });
-            if (state.todos.length > 0) {
-                state.counter = Math.max(...state.todos.map(task => task.id)) + 1;
-            } else {
-                state.counter = 1;
-            }
         },
         toggleTask(state, action){
+            state.changed=true;
             const task = state.todos.find((t) => t.id === action.payload);
             if (task) task.completed = !task.completed;
         },
     }
 })
 export const  taskActions = taskSlice.actions;
-export default taskSlice.reducer;
+export default taskSlice;

@@ -5,6 +5,7 @@ import { faList } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 import { taskActions } from "../Redux/taskSlice";
 import { useDispatch } from "react-redux";
+import { v4 as uuidv4 } from "uuid"; 
 
 export default function NavBarTop() {
     const dispatch = useDispatch();
@@ -15,13 +16,17 @@ export default function NavBarTop() {
     }
 
     function handleSubmit(event) {
+        const taskId = uuidv4();
         event.preventDefault();
         const form = event.target;
         const formData = new FormData(form);
         const dataObject = Object.fromEntries(formData.entries());
         console.log(dataObject.tasktitle);
         if(dataObject.tasktitle===""){return}
-        dispatch(taskActions.addTask(dataObject.tasktitle));
+        dispatch(taskActions.addTask({
+                id: taskId,
+                title: dataObject.tasktitle,
+                }))
         form.reset();
 
     }

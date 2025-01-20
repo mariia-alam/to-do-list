@@ -4,8 +4,9 @@ import IncompleteTasks from "./Pages/IncompleteTasks"
 import CompletedTasks from "./Pages/CompletedTasks"
 import Root from "./Pages/Root"
 import Error from "./Pages/Error"
-import { Provider } from "react-redux"
-import store from "./Redux/store"
+import {useDispatch, useSelector } from "react-redux"
+import { useEffect } from "react"
+import { fetchTasks, sendTasks } from "./Redux/taskActions"
 
 const router = createBrowserRouter([
   {
@@ -28,13 +29,29 @@ const router = createBrowserRouter([
     ]
   },
 ])
-export default function App() {
-  return (
-    <Provider store={store}>
-      <RouterProvider router={router}>
-        <div>hi</div>
-      </RouterProvider>
-    </Provider>
+  let isInitial=true;
 
+export default function App() {
+  const tasks = useSelector((state)=> state.todos);
+  const dispatch = useDispatch();
+
+  useEffect(()=>{
+    if(isInitial){
+      isInitial=false;
+      return;
+    }
+    if(tasks.changed){
+    dispatch(sendTasks(tasks));
+    }
+  },[tasks, dispatch]);
+
+
+useEffect(()=>{
+  dispatch(fetchTasks())
+  },[dispatch]);
+
+  return (
+      <RouterProvider router={router}>
+      </RouterProvider>
   )
 }
